@@ -1,19 +1,19 @@
-# react-minimal
-> A minimal starter kit for React with Webpack, Babel, SASS &amp; CSS Modules.
+# vue-minimal
+> A minimal starter kit for Vue with Webpack, Babel, SASS &amp; CSS Modules.
 
-![./logo.png](./logo.png)
+![./logo.png](./logo-vue.png)
 
-As the name says, this is *another* React starter kit created to give the minimum-viable-configuration to get started a new React based project with less dependencies and boilerplate as possible.
+As the name says, this is *another* Vue starter kit created to give the minimum-viable-configuration to get started a new Vue based project with less dependencies and boilerplate as possible.
 
 Developed mainly for me 😎 but open to everyone who may find this useful.
 
-* React & React DOM
+* Vue
 * Webpack
   * HTML plugin
   * Notifier
 * SASS & normalize.css
 * Styles loaded as CSS Modules
-* Babel, with the `env` & `React` presets
+* Babel, with the `env` preset
 * gh-pages (publish)
 
 ### Get started
@@ -21,7 +21,7 @@ A few steps to quick-start a new project:
 
 Clone the repo on a new folder
 ```
-$ git clone https://github.com/moebiusmania/react-minimal my-project
+$ git clone https://github.com/moebiusmania/vue-minimal my-project
 ```
 
 Change the name in the `package.json`, this will also affect the HTML title and the Webpack's notifications:
