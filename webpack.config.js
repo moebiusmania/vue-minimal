@@ -1,8 +1,9 @@
-
+'use strict';
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const { VueLoaderPlugin } = require('vue-loader');
 const pkg = require('./package.json');
 
 const env = process.env.NODE_ENV || 'development';
@@ -18,6 +19,7 @@ module.exports = {
     chunkFilename: '[chunk].js'
   },
   plugins: [
+    new VueLoaderPlugin(),
     new WebpackNotifierPlugin({
       title: pkg.name,
       alwaysNotify: true
@@ -30,6 +32,10 @@ module.exports = {
   devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        use: 'vue-loader'
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
