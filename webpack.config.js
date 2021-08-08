@@ -2,7 +2,6 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackNotifierPlugin = require('webpack-notifier');
 const { VueLoaderPlugin } = require('vue-loader');
 const pkg = require('./package.json');
 
@@ -16,14 +15,11 @@ module.exports = {
   output: {
     path: path.join(__dirname, './dist'),
     filename: 'main.js',
-    chunkFilename: '[chunk].js'
+    chunkFilename: '[chunk].js',
+    clean: true
   },
   plugins: [
     new VueLoaderPlugin(),
-    new WebpackNotifierPlugin({
-      title: pkg.name,
-      alwaysNotify: true
-    }),
     new HtmlWebpackPlugin({
       title: pkg.name,
       template: './src/assets/index.html'
@@ -50,7 +46,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader', 
-          'css-loader?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]', 
+          { loader: 'css-loader' , options: { modules: true} }, 
           'sass-loader']
       }
     ]
@@ -62,7 +58,7 @@ module.exports = {
       poll: true
     },
     compress: true,
-    port: 8090,
+    port: 3000,
     host: 'localhost',
     hot: true,
     inline: true
